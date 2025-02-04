@@ -1,12 +1,25 @@
-import './App.css'
+// src/App.tsx
 
-function App() {
+import { Route, BrowserRouter as Router, Routes } from "react-router";
+import { routes } from "./routes";
 
+
+export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  )
+    <Router>
+      <Routes>
+        {
+          routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element}>
+              {
+                route.children?.map((child, childIndex) => (
+                  <Route key={childIndex} path={child.path} element={child.element}/>
+                ))
+              }
+            </Route>
+          ))
+        }
+      </Routes>
+    </Router>
+  );
 }
-
-export default App
