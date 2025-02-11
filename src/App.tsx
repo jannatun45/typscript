@@ -1,25 +1,16 @@
-// src/App.tsx
-
-import { Route, BrowserRouter as Router, Routes } from "react-router";
-import { routes } from "./routes";
-
-
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        {
-          routes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element}>
-              {
-                route.children?.map((child, childIndex) => (
-                  <Route key={childIndex} path={child.path} element={child.element}/>
-                ))
-              }
-            </Route>
-          ))
-        }
-      </Routes>
-    </Router>
+      <div className="flex">
+        <aside className="w-60 bg-gray-300">
+          <div>
+            <a href="http://localhost:5173/">
+              <h2>Aside</h2>
+            </a>
+          </div>
+        </aside>
+        <main>
+          <h1>ini adala main</h1>
+        </main>
+      </div>
   );
 }
