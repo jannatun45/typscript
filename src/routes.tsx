@@ -24,6 +24,10 @@ export const routes = [
         element: <Dashboard />,
         children: [
             {
+                path: "",
+                element: <Home />
+            },
+            {
                 path: "settings",
                 element: <Settings />
             },
