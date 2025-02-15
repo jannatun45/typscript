@@ -1,32 +1,18 @@
 // main.tsx
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom' // Import createBrowserRouter dan RouterProvider
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
+import './index.css';
 import App from './App.tsx'
-import { routes } from './routes' // Import routes dari file routes
+import { routes } from './routes';
 
-const router = createBrowserRouter(routes); // Gunakan createBrowserRouter untuk membuat router
+const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} /> {/* Ganti BrowserRouter dengan RouterProvider */}
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+    </ErrorBoundary>
   </StrictMode>,
 )
-
-
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import { BrowserRouter as Router } from 'react-router'
-// import './index.css'
-// import App from './App.tsx'
-
-
-// createRoot(document.getElementById('root')!).render(
-//   <StrictMode>
-//     <Router>
-//       <App />
-//     </Router>
-
-//   </StrictMode>,
-// )
